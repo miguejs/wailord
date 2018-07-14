@@ -1,0 +1,29 @@
+{
+  "name": "wailord",
+  "version": "1.0.0",
+  "description": "cli tool for better docker commands",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "debug": "node  --nolazy --inspect-brk=9229 index.js  attach web"
+  },
+  "keywords": [
+    "docker",
+    "cli"
+  ],
+  "bin": {
+    "wailord": "./index.js"
+  },
+  "author": "imiked.mail@gmail.com",
+  "license": "ISC",
+  "dependencies": {
+    "bluebird": "^3.5.1",
+    "chalk": "^2.4.1",
+    "clear": "^0.1.0",
+    "clui": "^0.3.6",
+    "commander": "^2.16.0",
+    "figlet": "^1.2.0",
+    "inquirer": "^6.0.0",
+    "minimist": "^1.2.0"
+  }
+}
