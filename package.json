@@ -1,19 +1,27 @@
 {
   "name": "wailord",
-  "version": "1.0.0",
-  "description": "cli tool for better docker commands",
+  "version": "0.0.2",
+  "description": "the same docker commands, but better.",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "debug": "node  --nolazy --inspect-brk=9229 index.js  attach web"
+    "add-contributor": "kcd-scripts contributors add",
+    "build": "kcd-scripts build",
+    "lint": "kcd-scripts lint",
+    "test": "kcd-scripts test --coverageThreshold \"{\\\"global\\\": {}}\"",
+    "test:update": "npm test -- --updateSnapshot --coverage",
+    "validate": "kcd-scripts validate",
+    "precommit": "kcd-scripts precommit"
   },
   "keywords": [
     "docker",
     "cli"
   ],
   "bin": {
-    "wailord": "./index.js"
+    "wailord": "dist/bin/index.js"
   },
+  "files": [
+    "dist"
+  ],
   "author": "imiked.mail@gmail.com",
   "license": "ISC",
   "dependencies": {
@@ -25,5 +33,33 @@
     "figlet": "^1.2.0",
     "inquirer": "^6.0.0",
     "minimist": "^1.2.0"
-  }
+  },
+  "xo": {
+    "space": true
+  },
+  "devDependencies": {
+    "babel-cli": "^6.26.0",
+    "babel-plugin-module-resolver": "^2.7.1",
+    "babel-plugin-transform-runtime": "^6.23.0",
+    "chai": "^4.1.2",
+    "kcd-scripts": "^0.39.3",
+    "mocha": "^5.2.0",
+    "spawn-command": "0.0.2-1",
+    "strip-ansi": "^4.0.0",
+    "xo": "^0.21.1"
+  },
+  "babel": {
+    "presets": "kcd-scripts/babel",
+    "plugins": [
+      "transform-runtime"
+    ]
+  },
+  "eslintConfig": {
+    "extends": "./node_modules/kcd-scripts/eslint.js"
+  },
+  "eslintIgnore": [
+    "node_modules",
+    "coverage",
+    "dist"
+  ]
 }
